@@ -6,6 +6,10 @@ vim.opt.shiftwidth = indent
 vim.opt.tabstop = indent
 vim.opt.softtabstop = indent
 
+-- Remove command line
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 0
+
 -- Show line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -50,5 +54,4 @@ require('syntax-highlighting')
 require('file-finder')
 require('auto-pairs')
 require('statusbar')
-require('tabs')
 require('project-manager')

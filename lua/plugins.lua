@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   end
 
   -- Theme stuff
+  use 'xiyaowong/transparent.nvim'
   use 'zaldih/themery.nvim' -- Theme manager
   use { "catppuccin/nvim", as = "catppuccin" }
   use "rebelot/kanagawa.nvim"
