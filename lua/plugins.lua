@@ -43,6 +43,16 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Hop around quickly
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
   -- LSP stuff
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
@@ -66,6 +76,9 @@ return require('packer').startup(function(use)
 
   -- IDE stuff
   use 'windwp/nvim-autopairs'
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function() -- Terminal
+    require("toggleterm").setup()
+  end}
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -80,14 +93,13 @@ return require('packer').startup(function(use)
     end,
   }
   use { -- Fuzzy search
-     'nvim-telescope/telescope.nvim',
-     requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
   use { -- Lualine information / status bar
-     'nvim-lualine/lualine.nvim',
-     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   use 'ahmedkhalf/project.nvim'
   use {'kdheepak/lazygit.nvim', requires = 'nvim-lua/plenary.nvim' }
 

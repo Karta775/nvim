@@ -1,9 +1,6 @@
 
 require('telescope').load_extension('projects')
 
--- project_nvim integration
--- require'telescope'.extensions.projects.projects{}
-
 -- search files, even hidden ones
 vim.keymap.set('n', '<leader>ff', ':lua require"telescope.builtin".find_files({no_ignore=true, hidden=true})<CR>', {})
 

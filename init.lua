@@ -37,14 +37,24 @@ vim.opt.conceallevel = 3
 
 -- Neovide specific
 if vim.g.neovide then
-  vim.g.neovide_input_macos_alt_is_meta = true -- Let option be alt
+  vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_remember_window_size = true
+  vim.g.neovide_transparency = 1
+  vim.g.neovide_window_blurred = false
+
+  vim.o.guifont = "JetBrains Mono:h14.5"
+  vim.g.neovide_cursor_animation_length = 0.03
+  vim.g.neovide_cursor_trail_size = 0.1
+
+  vim.g.neovide_floating_shadow = false
 end
 
 -- Lua modules
 require('plugins')
 require('style')
+require('movement')
+require('terminal')
 require('key-mappings')
 require('mason-config')
 require('code-completion')
@@ -55,3 +65,6 @@ require('file-finder')
 require('auto-pairs')
 require('statusbar')
 require('project-manager')
+
+-- Hide the bottom status bar
+vim.cmd("highlight lualine_c_inactive guibg=NONE")
