@@ -10,6 +10,7 @@ vim.g.maplocalleader = ' '
 map("n", "<leader><space>", ":let @/=''<cr>", {})   -- Clear search
 map("n", "<leader><leader>", "<C-W><C-W>", {})      -- Switch buffer
 map("n", "<leader>r", ":luafile %<cr>", {})         -- Load current Lua file
+map("n", "<leader>R", ":luafile ~/.config/nvim/init.lua<cr>", {}) -- Realod nvim config
 map("n", "<leader>cn", ":Neorg ", {})               -- Run a Neorg command
 map("n", "<leader>.", "/\\.#<CR>:let @/=''<CR>cf.", {}) -- Find a placeholder .#???#. and replace
 map("i", "<leader><leader>", "<ESC>/\\.#<CR>:let @/=''<CR>cf.", {}) -- Find a placeholder .#???#. and replace
