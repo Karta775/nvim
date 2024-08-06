@@ -105,6 +105,12 @@ return require('packer').startup(function(use)
 
   -- Utilities
   use 'dstein64/vim-startuptime' -- Use :StartupTime to profile startup
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require('which-key').setup {}
+    end
+  }
 
   -- Startup screen
   use {
