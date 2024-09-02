@@ -29,6 +29,7 @@ map("n", "<M-l>", "$", "Go to end of line")
 map("v", "<", "<gv", "Stay in indent mode")
 map("v", ">", ">gv", "Stay in indent mode")
 map("i", "jk", "<esc>", "Leave insert mode")
+map({"i", "t"}, "<s-space>", " ", "Ignore shift-space")
 
 -- Toggle
 -- NOTE: There are some keymaps in terminal.lua
