@@ -92,7 +92,7 @@ map("n", "<leader>LS", ":Lazy sync<CR>", "Sync")
 map("n", "<leader>LC", ":Lazy sync<CR>", "Clean")
 
 -- LSP
--- See plugins/lsp.lua
+-- See core/autocmds.lua
 
 -- Session
 map("n", "<leader>qq", "<cmd>q<cr>", "Quit")
