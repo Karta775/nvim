@@ -37,9 +37,18 @@ map("n", "<leader>tz", "<cmd>ZenMode<cr>", "Zen mode")
 map({ "n", "i", "t" }, "<m-`>", "<cmd>5ToggleTerm<cr>", "Toggle terminal")
 map("n", "<leader>tt", "<cmd>Toc<cr>", "Table of contents")
 
+-- Yanky (better yank)
+map({"n","x"}, "p", "<Plug>(YankyPutAfter)", "Put")
+map({"n","x"}, "P", "<Plug>(YankyPutBefore)", "Put before")
+map({"n","x"}, "gp", "<Plug>(YankyGPutAfter)", "G put")
+map({"n","x"}, "gP", "<Plug>(YankyGPutBefore)", "G put before")
+map("n", "<c-p>", "<Plug>(YankyPreviousEntry)", "Previous yank")
+map("n", "<c-n>", "<Plug>(YankyNextEntry)", "Next yank")
+
 -- Search
 map("n", "<leader>sh", ":Telescope help_tags<cr>", "Help files")
 map("n", "<leader>sk", ":Telescope keymaps<cr>", "Keymaps")
+map("n", "<leader>sp", ":Telescope yank_history<cr>", "Yank history")
 
 -- Neorg
 map("n", "<leader>nw", "<Plug>(neorg.telescope.switch_workspace)", "Workspace")
