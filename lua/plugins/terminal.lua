@@ -32,9 +32,9 @@ return {
           vim.cmd("startinsert!")
         end,
       })
-      local ncmpcpp = Terminal:new({
+      local music_player = Terminal:new({
         cmd = "ncmpcpp",
-        name = "ncmpcpp",
+        name = "music_player",
         direction = "float",
         -- function to run on opening the terminal
         on_open = function(term)
@@ -43,7 +43,7 @@ return {
             term.bufnr,
             "t",
             "q",
-            "<cmd>ToggleTerm name='ncmpcpp'<CR>",
+            "<cmd>ToggleTerm name='music_player'<CR>",
             { noremap = true, silent = true }
           )
         end,
@@ -52,18 +52,18 @@ return {
           vim.cmd("startinsert!")
         end,
       })
-      local ranger_tmpfile = vim.fn.tempname()
-      local ranger = Terminal:new({
-        cmd = 'yazi --cwd-file "' .. ranger_tmpfile .. '"',
-        name = "ranger",
+      local file_manager_tmpfile = vim.fn.tempname()
+      local file_manager = Terminal:new({
+        cmd = 'yazi --cwd-file "' .. file_manager_tmpfile .. '"',
+        name = "file_manager",
         close_on_exit = true,
         on_exit = function(term)
-          vim.cmd("ToggleTerm name='ranger'")
-          local file = io.open(ranger_tmpfile, "r")
+          vim.cmd("ToggleTerm name='file_manager'")
+          local file = io.open(file_manager_tmpfile, "r")
           if file ~= nil then
             local path = file:read("*a")
             file:close()
-            os.remove(ranger_tmpfile)
+            os.remove(file_manager_tmpfile)
             vim.cmd("cd " .. path)
           end
         end,
@@ -74,16 +74,16 @@ return {
       function _lazygit_toggle()
         lazygit:toggle()
       end
-      function _ncmpcpp_toggle()
-        ncmpcpp:toggle()
+      function _music_player_toggle()
+        music_player:toggle()
       end
-      function _ranger_toggle()
-        ranger:toggle()
+      function _file_manager_toggle()
+        file_manager:toggle()
       end
 
       map("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", { desc = "LazyGit" })
-      map("n", "<leader>tm", "<cmd>lua _ncmpcpp_toggle()<CR>", { desc = "Music player" })
-      map("n", "<leader>tr", "<cmd>lua _ranger_toggle()<CR>", { desc = "Ranger" })
+      map("n", "<leader>tm", "<cmd>lua _music_player_toggle()<CR>", { desc = "Music player" })
+      map("n", "<leader>tr", "<cmd>lua _file_manager_toggle()<CR>", { desc = "File manager" })
     end,
   },
 }
