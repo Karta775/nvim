@@ -56,7 +56,7 @@ map("n", "<leader>nj", ":Neorg journal today<cr>", "Today")
 map({ "n", "v" }, "<leader>e", "<cmd>NvimTreeToggle<cr>", "Toggle file explorer")
 
 -- Search
-map("n", "<leader>ff", ':lua require"telescope.builtin".find_files({no_ignore=true, hidden=true})<CR>', "Files")
+map("n", "<leader>ff", ':lua require"telescope.builtin".find_files({no_ignore=false, hidden=false})<CR>', "Files")
 map(
   "n",
   "<leader>fF",
