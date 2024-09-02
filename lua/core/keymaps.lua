@@ -4,7 +4,8 @@ local map = require("helpers.keys").map
 local wk = require("which-key")
 wk.add({
   { "<leader>L",  group = "Lazy" },
-  { "<leader>b",  group = "Debugging" },
+  { "<leader>a",  group = "Avante" },
+  { "<leader>b",  group = "Buffer" },
   { "<leader>d",  group = "Delete" },
   { "<leader>f",  group = "Find" },
   { "<leader>g",  group = "Git" },
@@ -109,7 +110,7 @@ map("n", "<C-Down>", ":resize -2<CR>")
 map("n", "<C-Left>", ":vertical resize +2<CR>")
 map("n", "<C-Right>", ":vertical resize -2<CR>")
 
--- Buffers
+-- Buffer
 local buffers = require("helpers.buffers")
 map("n", "<leader>bd", buffers.delete_this, "Current buffer")
 map("n", "<leader>bD", buffers.delete_others, "Other buffers")
