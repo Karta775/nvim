@@ -11,6 +11,7 @@ return {
 			require("neorg").setup({
 				load = {
 					["core.defaults"] = {},
+					["core.keybinds"] = {},
 					["core.concealer"] = {},
 					["core.summary"] = {
 						config = {
