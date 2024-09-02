@@ -13,6 +13,7 @@ wk.add({
   { "<leader>lw", group = "Workspace" },
   { "<leader>n",  group = "Neorg" },
   { "<leader>q",  group = "Session" },
+  { "<leader>s",  group = "Search" },
   { "<leader>t",  group = "Toggle" },
   { "<leader>u",  group = "UI" },
   { "<leader>w",  group = "Window" },
@@ -34,6 +35,10 @@ map("i", "jk", "<esc>", "Leave insert mode")
 map("n", "<leader>tz", "<cmd>ZenMode<cr>", "Zen mode")
 map({ "n", "i", "t" }, "<m-`>", "<cmd>5ToggleTerm<cr>", "Toggle terminal")
 map("n", "<leader>tt", "<cmd>Toc<cr>", "Table of contents")
+
+-- Search
+map("n", "<leader>sh", ":Telescope help_tags<cr>", "Help files")
+map("n", "<leader>sk", ":Telescope keymaps<cr>", "Keymaps")
 
 -- Neorg
 map("n", "<leader>nw", "<Plug>(neorg.telescope.switch_workspace)", "Workspace")
