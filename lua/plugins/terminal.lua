@@ -28,7 +28,7 @@ return {
           vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
         end,
         -- function to run on closing the terminal
-        on_close = function(term)
+        on_close = function()
           vim.cmd("startinsert!")
         end,
       })
@@ -48,7 +48,7 @@ return {
           )
         end,
         -- function to run on closing the terminal
-        on_close = function(term)
+        on_close = function()
           vim.cmd("startinsert!")
         end,
       })
@@ -57,7 +57,7 @@ return {
         cmd = 'yazi --cwd-file "' .. file_manager_tmpfile .. '"',
         name = "file_manager",
         close_on_exit = true,
-        on_exit = function(term)
+        on_exit = function()
           vim.cmd("ToggleTerm name='file_manager'")
           local file = io.open(file_manager_tmpfile, "r")
           if file ~= nil then
@@ -67,23 +67,23 @@ return {
             vim.cmd("cd " .. path)
           end
         end,
-        on_open = function(term)
+        on_open = function()
           vim.cmd("startinsert!")
         end,
       })
-      function _lazygit_toggle()
+      local function _lazygit_toggle()
         lazygit:toggle()
       end
-      function _music_player_toggle()
+      local function _music_player_toggle()
         music_player:toggle()
       end
-      function _file_manager_toggle()
+      local function _file_manager_toggle()
         file_manager:toggle()
       end
 
-      map("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", { desc = "LazyGit" })
-      map("n", "<leader>tm", "<cmd>lua _music_player_toggle()<CR>", { desc = "Music player" })
-      map("n", "<leader>tr", "<cmd>lua _file_manager_toggle()<CR>", { desc = "File manager" })
+      map("n", "<leader>tg", _lazygit_toggle(), { desc = "LazyGit" })
+      map("n", "<leader>tm", _music_player_toggle(), { desc = "Music player" })
+      map("n", "<leader>tr", _file_manager_toggle(), { desc = "File manager" })
     end,
   },
 }
