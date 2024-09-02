@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		lsp_map("<leader>la", vim.lsp.buf.code_action, bufnr, "Code action")
 		lsp_map("<leader>ls", require("telescope.builtin").lsp_document_symbols, bufnr, "Document symbols")
 		lsp_map("<leader>lf", ":lua vim.lsp.buf.format()<CR>", bufnr, "Format file")
-		lsp_map("<space>ll", vim.diagnostic.open_float, bufnr, "Show diagnostic")
+		lsp_map("<space>ll", ":Telescope diagnostics<cr>", bufnr, "Search diagnostics")
 		lsp_map("<space>lq", vim.diagnostic.setloclist, bufnr, "Location list")
 		lsp_map("<leader>lD", vim.lsp.buf.declaration, bufnr, "Go to declaration")
 		lsp_map("<leader>ld", vim.lsp.buf.definition, bufnr, "Go to definition")
