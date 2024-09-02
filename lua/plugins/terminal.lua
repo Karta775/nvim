@@ -10,7 +10,7 @@ return {
         close_on_exit = true,
       })
 
-      local map = vim.keymap.set
+      local map = require("helpers.keys").map
       local Terminal = require("toggleterm.terminal").Terminal
 
       Terminal:new({ name = "bottom" })
@@ -81,9 +81,9 @@ return {
         file_manager:toggle()
       end
 
-      map("n", "<leader>tg", _lazygit_toggle(), { desc = "LazyGit" })
-      map("n", "<leader>tm", _music_player_toggle(), { desc = "Music player" })
-      map("n", "<leader>tr", _file_manager_toggle(), { desc = "File manager" })
+      map("n", "<leader>tg", _lazygit_toggle, "LazyGit")
+      map("n", "<leader>tm", _music_player_toggle, "Music player")
+      map("n", "<leader>tr", _file_manager_toggle, "File manager")
     end,
   },
 }
