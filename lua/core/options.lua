@@ -4,7 +4,9 @@ vim.o.shiftwidth = indent
 vim.o.tabstop = indent
 vim.o.softtabstop = indent
 vim.o.expandtab = true
+vim.o.virtualedit = "block"
 vim.o.wrap = false
+vim.o.scrolloff = 999 -- Keep the cursor in the center
 vim.o.termguicolors = true
 vim.o.belloff = "all"
 vim.o.foldlevelstart = 99
@@ -14,10 +16,12 @@ vim.o.ruler = true -- File stats
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.splitbelow = true
+vim.o.splitright = true
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
 vim.o.autochdir = false
-vim.o.ignorecase = true -- Ignore case in searches
+vim.o.inccommand = "split"
+vim.o.ignorecase = true           -- Ignore case in searches
 vim.cmd("set formatoptions-=cro") -- Disable continuation of comments on newline
 
 -- Neovide specific
@@ -34,9 +38,8 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_transparency = 1
   vim.g.neovide_window_blurred = false
-  vim.o.guifont = "FiraCode Nerd Font:h15.5"
   vim.g.neovide_cursor_animation_length = 0.03
   vim.g.neovide_cursor_trail_size = 0.1
   vim.g.neovide_floating_shadow = false
+  vim.o.guifont = "FiraCode Nerd Font:h15.5"
 end
-
