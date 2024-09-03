@@ -29,7 +29,7 @@ map("n", "<M-l>", "$", "Go to end of line")
 map("v", "<", "<gv", "Stay in indent mode")
 map("v", ">", ">gv", "Stay in indent mode")
 map("i", "jk", "<esc>", "Leave insert mode")
-map({"i", "t"}, "<s-space>", " ", "Ignore shift-space")
+map({ "i", "t" }, "<s-space>", " ", "Ignore shift-space")
 
 -- Toggle
 -- NOTE: There are some keymaps in terminal.lua
@@ -38,10 +38,10 @@ map({ "n", "i", "t" }, "<m-`>", "<cmd>5ToggleTerm<cr>", "Toggle terminal")
 map("n", "<leader>tt", "<cmd>Toc<cr>", "Table of contents")
 
 -- Yanky (better yank)
-map({"n","x"}, "p", "<Plug>(YankyPutAfter)", "Put")
-map({"n","x"}, "P", "<Plug>(YankyPutBefore)", "Put before")
-map({"n","x"}, "gp", "<Plug>(YankyGPutAfter)", "G put")
-map({"n","x"}, "gP", "<Plug>(YankyGPutBefore)", "G put before")
+map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", "Put")
+map({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", "Put before")
+map({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", "G put")
+map({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", "G put before")
 map("n", "<c-p>", "<Plug>(YankyPreviousEntry)", "Previous yank")
 map("n", "<c-n>", "<Plug>(YankyNextEntry)", "Next yank")
 
@@ -59,7 +59,8 @@ map("n", "<leader>nt", ":execute \"normal o** \" . strftime('%H:%M')<CR>o", "Ins
 map("n", "<leader>ni", ":Neorg index<CR>", "Open index")
 map("n", "<leader>nf", "<Plug>(neorg.telescope.find_norg_files)", "Open note")
 map("n", "<leader>nl", "<Plug>(neorg.telescope.find_linkable)", "Link note")
-map("n", "<leader>nj", ":Neorg journal today<cr>", "Today")
+map("n", "<leader>nj", ":new | Neorg journal today<cr>", "Today (split)")
+map("n", "<leader>nJ", ":Neorg journal today<cr>", "Today (full buffer)")
 
 -- Nvim Tree
 map({ "n", "v" }, "<leader>e", "<cmd>NvimTreeToggle<cr>", "Toggle file explorer")
