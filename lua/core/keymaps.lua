@@ -64,8 +64,8 @@ map("n", "<leader>nl", "<Plug>(neorg.telescope.find_linkable)", "Link note")
 map("n", "<leader>nj", ":new | Neorg journal today<cr>", "Today (split)")
 map("n", "<leader>nJ", ":Neorg journal today<cr>", "Today (full buffer)")
 
--- Nvim Tree
-map({ "n", "v" }, "<leader>e", "<cmd>NvimTreeToggle<cr>", "Toggle file explorer")
+-- File manager
+map({ "n", "v" }, "<leader>e", MiniFiles.open, "Open file manager")
 
 -- Search
 map("n", "<leader>ff", ':lua require"telescope.builtin".find_files({no_ignore=false, hidden=false})<CR>', "Files")
