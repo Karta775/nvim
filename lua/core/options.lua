@@ -22,6 +22,7 @@ vim.o.laststatus = 3
 vim.o.autochdir = false
 vim.o.inccommand = "split"
 vim.o.ignorecase = true           -- Ignore case in searches
+vim.o.clipboard = "unnamedplus"   -- Use system clipboard
 vim.cmd("set formatoptions-=cro") -- Disable continuation of comments on newline
 
 -- Neovide specific
