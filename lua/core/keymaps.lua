@@ -37,7 +37,7 @@ map({ "n", "i", "t" }, "<m-`>", "<cmd>5ToggleTerm<cr>", "Toggle terminal")
 map("n", "<leader>tz", "<cmd>ZenMode<cr>", "Zen mode")
 map("n", "<leader>tt", "<cmd>Toc<cr>", "Table of contents")
 map("n", "<leader>td", MiniDiff.toggle_overlay, "Toggle diff overlay")
-map("n", "<leader>tD", MiniDiff.toggle, "Table diff")
+map("n", "<leader>tD", MiniDiff.toggle, "Toggle diff")
 
 -- Yanky (better yank)
 map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", "Put")
