@@ -76,6 +76,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		lsp_map("]d", vim.diagnostic.goto_next, bufnr, "Next LSP diagnostic")
 
 		-- Attach and configure vim-illuminate
-		require("illuminate").on_attach(client)
+		-- require("illuminate").on_attach(client)
 	end,
 })
