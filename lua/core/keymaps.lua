@@ -61,8 +61,8 @@ map("n", "<leader>nt", ":execute \"normal o** \" . strftime('%H:%M')<CR>o", "Ins
 map("n", "<leader>ni", ":Neorg index<CR>", "Open index")
 map("n", "<leader>nf", "<Plug>(neorg.telescope.find_norg_files)", "Open note")
 map("n", "<leader>nl", "<Plug>(neorg.telescope.find_linkable)", "Link note")
-map("n", "<leader>nj", ":new | Neorg journal today<cr>", "Today (split)")
-map("n", "<leader>nJ", ":Neorg journal today<cr>", "Today (full buffer)")
+map("n", "<leader>nj", ":Neorg journal today<cr>", "Today (full buffer)")
+map("n", "<leader>nJ", ":new | Neorg journal today<cr>", "Today (split)")
 
 -- File manager
 map({ "n", "v" }, "<leader>e", MiniFiles.open, "Open file manager")
