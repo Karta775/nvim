@@ -68,6 +68,7 @@ map("n", "<leader>nJ", ":new | Neorg journal today<cr>", "Today (split)")
 map({ "n", "v" }, "<leader>e", MiniFiles.open, "Open file manager")
 
 -- Search
+map("n", "<leader><leader>", ':lua require"telescope.builtin".find_files({no_ignore=false, hidden=false})<CR>', "Files")
 map("n", "<leader>ff", ':lua require"telescope.builtin".find_files({no_ignore=false, hidden=false})<CR>', "Files")
 map(
   "n",
@@ -90,7 +91,6 @@ map(
 map("n", "<leader>fg", ':lua require"telescope.builtin".live_grep()<CR>', "Strings (ripgrep)")
 map("n", "<leader>fp", ':lua require"telescope".extensions.projects.projects{}<CR>', "Projects")
 map("n", "<leader>fb", ":Telescope buffers<CR>", "Buffers")
-map("n", "<leader><space>", require("telescope.builtin").buffers, "Find buffers")
 map("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
