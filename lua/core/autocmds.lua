@@ -39,7 +39,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "norg",
   desc = "Set up neorg which-key",
-  callback = function()
+  callback = function(args)
+    -- Localleader
     local wk = require("which-key")
     wk.add({ "<localleader>i", group = "Insert" }, { buffer = true })
     wk.add({ "<localleader>c", group = "Code" }, { buffer = true })
@@ -47,6 +48,22 @@ vim.api.nvim_create_autocmd("FileType", {
     wk.add({ "<localleader>l", group = "List" }, { buffer = true })
     wk.add({ "<localleader>n", group = "Note" }, { buffer = true })
     wk.add({ "<localleader>t", group = "Task" }, { buffer = true })
+
+    -- Leader
+    local buf_map = require('helpers.keys').buf_map
+    local buffers = require("helpers.buffers")
+    buf_map("<leader>na", function()
+      --  FIXME: This function uses a hardcoded norg directory
+      local path = vim.api.nvim_buf_get_name(0)
+      local norgDir = string.gsub(path, "norg/.*", "norg")
+      local relativePath = string.gsub(path, ".*norg/[^/]*/", "")
+      local filename = vim.fn.expand("%:t")
+      local archivePath = string.gsub(norgDir .. "/archive/" .. relativePath, filename, "")
+      print(archivePath)
+      os.execute("mkdir -p " .. archivePath)
+      os.execute("mv " .. vim.fn.expand("%") .. " " .. archivePath .. filename)
+      buffers.delete_this()
+    end, args.buf, "Archive current file")
   end,
 })
 
