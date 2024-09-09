@@ -131,7 +131,7 @@ map("n", "<C-Right>", ":vertical resize -2<CR>")
 -- Buffer
 local buffers = require("helpers.buffers")
 map("n", "<leader>bd", buffers.delete_this, "Current buffer")
-map("n", "<leader>bD", buffers.delete_others, "Other buffers")
+map("n", "<leader>bo", buffers.delete_others, "Other buffers")
 map("n", "<leader>ba", buffers.delete_all, "All buffers")
 map("n", "<S-l>", ":bnext<CR>")
 map("n", "<S-h>", ":bprevious<CR>")
