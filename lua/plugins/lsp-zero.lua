@@ -17,6 +17,7 @@ return {
         },
       },
       { "saadparwaiz1/cmp_luasnip" },
+      { "ray-x/lsp_signature.nvim", }
     },
     branch = "v4.x",
     event = "VeryLazy",
@@ -34,6 +35,8 @@ return {
         if client.supports_method("textDocument/formatting") then
           require("lsp-format").on_attach(client)
         end
+        -- Set up signature help
+        require("lsp_signature").setup()
       end
 
       lsp_zero.extend_lspconfig({
