@@ -61,6 +61,7 @@ vim.api.nvim_create_autocmd("FileType", {
       local filename = vim.fn.expand("%:t")
       local archivePath = string.gsub(norgDir .. "/archive/" .. relativePath, filename, "")
       print(archivePath)
+      vim.cmd("w")
       os.execute("mkdir -p " .. archivePath)
       os.execute("mv " .. vim.fn.expand("%") .. " " .. archivePath .. filename)
       buffers.delete_this()
