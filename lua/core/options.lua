@@ -6,7 +6,6 @@ vim.o.softtabstop = indent
 vim.o.expandtab = true
 vim.o.virtualedit = "block"
 vim.o.wrap = false
-vim.o.scrolloff = 999 -- Keep the cursor in the center
 vim.o.termguicolors = true
 vim.o.belloff = "all"
 vim.o.foldlevelstart = 99
