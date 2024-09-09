@@ -115,6 +115,8 @@ map("n", "<leader>qr", ":lua MiniSessions.write('reload')<cr> :lua os.exit(101)<
 -- Window
 map("n", "<leader>ww", "<C-w><C-w>", "Cycle windows")
 map("n", "<leader>wq", "<C-w><C-q>", "Close window")
+map("n", "<leader>ws", ":split<CR>", "Horizontal split")
+map("n", "<leader>wv", ":vsplit<CR>", "Vertical split")
 map("n", "<C-h>", "<C-w><C-h>", "Navigate windows to the left")
 map("n", "<C-j>", "<C-w><C-j>", "Navigate windows down")
 map("n", "<C-k>", "<C-w><C-k>", "Navigate windows up")
