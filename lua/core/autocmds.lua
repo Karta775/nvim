@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.cmd("%d")
     vim.cmd("normal i * Index")
     vim.cmd("Neorg generate-workspace-summary")
+    vim.cmd("w")
   end
 })
 
