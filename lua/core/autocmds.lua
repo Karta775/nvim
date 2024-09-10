@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Leader
     local buf_map = require('helpers.keys').buf_map
     local buffers = require("helpers.buffers")
-    buf_map("<leader>na", function()
+    buf_map("<leader>nA", function()
       --  FIXME: This function uses a hardcoded norg directory
       local path = vim.api.nvim_buf_get_name(0)
       local norgDir = string.gsub(path, "norg/.*", "norg")
