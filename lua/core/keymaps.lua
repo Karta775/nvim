@@ -53,10 +53,11 @@ map("n", "<leader>sk", ":Telescope keymaps<cr>", "Keymaps")
 map("n", "<leader>sp", ":Telescope yank_history<cr>", "Yank history")
 
 -- Neorg
+map("n", "<leader>na", ":Neorg agenda day<cr>", "Agenda")
 map("n", "<leader>nw", "<Plug>(neorg.telescope.switch_workspace)", "Workspace")
 map("n", "<leader>nh", "<Plug>(neorg.telescope.search_headings)", "Headings")
 map("n", "<leader>nb", "<Plug>(neorg.telescope.file_backlinks)", "Backlinks")
-map("n", "<leader>nn", ":Neorg ", "Open")
+map("n", "<leader>nn", ":Neorg<cr>", "Open")
 map("n", "<leader>nt", ":execute \"normal o** \" . strftime('%H:%M')<CR>o", "Insert current time")
 map("n", "<leader>ni", ":Neorg index<CR>", "Open index")
 map("n", "<leader>nf", "<Plug>(neorg.telescope.find_norg_files)", "Open note")
