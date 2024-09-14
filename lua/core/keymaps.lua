@@ -115,7 +115,7 @@ end, "Search in current buffer")
 -- Lazy
 map("n", "<leader>LL", ":Lazy<CR>", "Lazy")
 map("n", "<leader>LS", ":Lazy sync<CR>", "Sync")
-map("n", "<leader>LC", ":Lazy sync<CR>", "Clean")
+map("n", "<leader>LC", ":Lazy clean<CR>", "Clean")
 
 -- LSP
 -- See core/autocmds.lua
