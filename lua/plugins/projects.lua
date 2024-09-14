@@ -1,10 +1,9 @@
-
 return {
-	{
-		'ahmedkhalf/project.nvim',
-		event = "VeryLazy",
-		config = function ()
-			require('project_nvim').setup {}
-		end
-	}
+  {
+    'ahmedkhalf/project.nvim',
+    event = "VeryLazy",
+    config = function()
+      require('project_nvim').setup {}
+    end
+  }
 }
