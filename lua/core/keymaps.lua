@@ -6,6 +6,7 @@ wk.add({
   { "<leader>L",  group = "Lazy" },
   { "<leader>a",  group = "Avante" },
   { "<leader>b",  group = "Buffer" },
+  { "<leader>c",  group = "Code" },
   { "<leader>d",  group = "Delete" },
   { "<leader>f",  group = "Find" },
   { "<leader>g",  group = "Git" },
@@ -66,7 +67,18 @@ map("n", "<leader>nj", ":Neorg journal today<cr>", "Today (full buffer)")
 map("n", "<leader>nJ", ":new | Neorg journal today<cr>", "Today (split)")
 
 -- File manager
-map({ "n", "v" }, "<leader>e", MiniFiles.open, "Open file manager")
+map({ "n", "v" }, "<leader>e", function()
+  MiniFiles.open(vim.api.nvim_buf_get_name(0))
+end, "Open file manager (current file)")
+map({ "n", "v" }, "<leader>E", MiniFiles.open, "Open file manager (cwd)")
+
+-- Code compile
+-- TODO: Eventually make this so that <leader>cc auto compiles based on filetype
+-- and <leader>cC lets you enter something custom.
+map("n", "<leader>cc", "<cmd>OverseerQuickAction<cr>", "Quick action list")
+map("n", "<leader>cx", "<cmd>OverseerQuickAction restart<cr>", "Restart current task")
+map("n", "<leader>cr", "<cmd>OverseerRun<cr>", "Run")
+map("n", "<leader>ct", "<cmd>OverseerToggle<cr>", "Show tasks")
 
 -- Search
 map("n", "<leader><leader>", ':lua require"telescope.builtin".find_files({no_ignore=false, hidden=false})<CR>', "Files")
