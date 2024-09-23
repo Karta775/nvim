@@ -36,6 +36,12 @@ local function mini_files_bookmarks()
   })
 end
 
+local banner_small_cat_ngu = "  \
+                      /|、      \
+     諦めないで      (˚ˎ 。7    \
+    NEVER GIVE UP     |、˜〵    \
+                      じしˍ,)ノ "
+
 return {
   {
     "echasnovski/mini.nvim",
@@ -69,14 +75,51 @@ return {
       require("mini.jump").setup()
       require("mini.move").setup()
       require("mini.operators").setup()
-      require("mini.pairs").setup()
-      -- require("mini.surround").setup() TODO: Come up with better mappings
+      require("mini.pairs").setup({
+        mappings = {
+          -- Prevents the action if the cursor is just before any character or next to a "\".
+          ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\][%s%)%]%}]" },
+          ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\][%s%)%]%}]" },
+          ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\][%s%)%]%}]" },
+          -- This is default (prevents the action if the cursor is just next to a "\").
+          [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+          ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+          ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
+          -- Prevents the action if the cursor is just before or next to any character.
+          ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w][^%w]", register = { cr = false } },
+          ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w][^%w]", register = { cr = false } },
+          ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w][^%w]", register = { cr = false } },
+        }
+      })
+      require("mini.surround").setup()
       require("mini.tabline").setup()
 
       require("mini.sessions").setup({
         autoread = false,
         autowrite = true,
         directory = vim.env.HOME .. "/.local/share/nvim/session",
+      })
+      require("mini.statusline").setup()
+
+      local starter = require('mini.starter')
+      local awk_arg = '{s=(36-length($0))/2; printf "%*s%s%*s\\n", s, "", $0, s, ""}'
+      starter.setup({
+        items = {
+          starter.sections.builtin_actions(),
+          starter.sections.telescope(),
+        },
+        content_hooks = {
+          starter.gen_hook.adding_bullet(),
+          starter.gen_hook.aligning('center', 'center'),
+        },
+        header = banner_small_cat_ngu,
+        -- footer = vim.fn.system("fortune -s -n 36 | awk '" .. awk_arg .. "'"),
+        footer = "",
+        -- footer = function()
+        --   local stats = require("lazy").stats()
+        --   local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        --   return "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
+        -- end,
       })
 
       require("mini.jump2d").setup({
@@ -94,10 +137,10 @@ return {
       -- vim.notify = notify.make_notify()
     end,
   },
-  { -- Has its own spec for the event
-    "echasnovski/mini.statusline",
-    version = false,
-    opts = {},
-    event = "VeryLazy",
-  },
+  -- { -- Has its own spec for the event
+  --   "echasnovski/mini.statusline",
+  --   version = false,
+  --   opts = {},
+  --   event = "VeryLazy",
+  -- },
 }
