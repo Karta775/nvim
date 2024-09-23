@@ -6,9 +6,9 @@ return {
       vim.cmd.colorscheme("onedark")
     end,
   },
-  {
-    "f-person/auto-dark-mode.nvim",
-    event = "VeryLazy",
-    opts = {}
-  },
+  -- {
+  --   "f-person/auto-dark-mode.nvim",
+  --   event = "VeryLazy",
+  --   opts = {}
+  -- },
 }
