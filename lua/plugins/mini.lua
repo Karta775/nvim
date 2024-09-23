@@ -134,7 +134,7 @@ return {
           enable = false,
         },
       })
-      -- vim.notify = notify.make_notify()
+      vim.notify = notify.make_notify()
     end,
   },
   -- { -- Has its own spec for the event
