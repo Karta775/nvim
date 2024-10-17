@@ -172,3 +172,9 @@ if vim.g.neovide then
   map("t", "<D-v>", "<C-R>+", "Paste")
   map("v", "<D-v>", "<C-R>+", "Paste")
 end
+
+-- Disable arrow keys
+map({ "n", "v" }, "<Up>", "<Nop>", "Disable arrow keys")
+map({ "n", "v" }, "<Down>", "<Nop>", "Disable arrow keys")
+map({ "n", "v" }, "<Left>", "<Nop>", "Disable arrow keys")
+map({ "n", "v" }, "<Right>", "<Nop>", "Disable arrow keys")
