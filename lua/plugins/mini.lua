@@ -1,15 +1,15 @@
+local mini_files_dotfiles_filter = function(fs_entry)
+  return not vim.startswith(fs_entry.name, '.')
+end
+
 local function mini_files_toggle_hidden()
   local show_dotfiles = false
 
   local filter_show = function(fs_entry) return true end
 
-  local filter_hide = function(fs_entry)
-    return not vim.startswith(fs_entry.name, '.')
-  end
-
   local toggle_dotfiles = function()
     show_dotfiles = not show_dotfiles
-    local new_filter = show_dotfiles and filter_show or filter_hide
+    local new_filter = show_dotfiles and filter_show or mini_files_dotfiles_filter
     MiniFiles.refresh({ content = { filter = new_filter } })
   end
 
@@ -61,19 +61,37 @@ return {
       require("mini.bracketed").setup()
       require("mini.comment").setup()
       require("mini.diff").setup()
+      require("mini.extra").setup()
       require("mini.files").setup({
         windows = {
           preview = true,
           width_focus = 30,
           width_preview = 80,
         },
+        content = {
+          filter = mini_files_dotfiles_filter,
+        }
       })
       mini_files_bookmarks()
       mini_files_toggle_hidden()
 
       require("mini.git").setup()
+      local hipatterns = require('mini.hipatterns')
+      hipatterns.setup({
+        highlighters = {
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+          fixme     = { pattern = 'FIXME', group = 'MiniHipatternsFixme' },
+          hack      = { pattern = 'HACK', group = 'MiniHipatternsHack' },
+          todo      = { pattern = 'TODO', group = 'MiniHipatternsTodo' },
+          note      = { pattern = 'NOTE', group = 'MiniHipatternsNote' },
+        }
+      })
       require("mini.icons").setup()
       require("mini.jump").setup()
+      local misc = require("mini.misc")
+      misc.setup()
+      misc.setup_termbg_sync()
+
       require("mini.move").setup()
       require("mini.operators").setup()
       require("mini.pairs").setup({
@@ -100,6 +118,7 @@ return {
         autowrite = true,
         directory = vim.env.HOME .. "/.local/share/nvim/session",
       })
+      require("mini.splitjoin").setup()
       require("mini.statusline").setup()
 
       local starter = require('mini.starter')
@@ -116,11 +135,6 @@ return {
         header = banner_small_cat_ngu,
         -- footer = vim.fn.system("fortune -s -n 36 | awk '" .. awk_arg .. "'"),
         footer = "",
-        -- footer = function()
-        --   local stats = require("lazy").stats()
-        --   local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        --   return "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
-        -- end,
       })
 
       require("mini.jump2d").setup({
@@ -138,10 +152,4 @@ return {
       vim.notify = notify.make_notify()
     end,
   },
-  -- { -- Has its own spec for the event
-  --   "echasnovski/mini.statusline",
-  --   version = false,
-  --   opts = {},
-  --   event = "VeryLazy",
-  -- },
 }
