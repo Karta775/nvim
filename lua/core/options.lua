@@ -23,6 +23,7 @@ vim.o.inccommand = "split"
 vim.o.ignorecase = true           -- Ignore case in searches
 vim.o.clipboard = "unnamedplus"   -- Use system clipboard
 vim.cmd("set formatoptions-=cro") -- Disable continuation of comments on newline
+vim.o.cursorline = true
 
 -- Neovide specific
 if vim.g.neovide then
