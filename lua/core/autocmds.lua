@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "typst", "md", "org", "norg", "AvanteInput" },
+  pattern = { "typst", "md", "markdown", "org", "norg", "AvanteInput" },
   desc = "Linewrap plaintext formats",
   command = "set linebreak | set wrap",
 })
