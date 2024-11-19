@@ -27,20 +27,20 @@ vim.o.cursorline = true
 
 -- Neovide specific
 if vim.g.neovide then
-  local map = require("helpers.keys").map
-  map({ "n", "v" }, "<D-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
-  map({ "n", "v" }, "<D-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
-  map({ "n", "v" }, "<D-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
-  map("i", "<D-=>", "<esc>:lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>a")
-  map("i", "<D-->", "<esc>:lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>a")
-  map("i", "<D-0>", "<esc>:lua vim.g.neovide_scale_factor = 1<CR>a")
-  vim.g.neovide_input_macos_option_key_is_meta = "only_left"
-  vim.g.neovide_hide_mouse_when_typing = true
-  vim.g.neovide_remember_window_size = true
-  vim.g.neovide_transparency = 1
-  vim.g.neovide_window_blurred = false
-  vim.g.neovide_cursor_animation_length = 0.03
-  vim.g.neovide_cursor_trail_size = 0.1
-  vim.g.neovide_floating_shadow = false
-  vim.o.guifont = "FiraCode Nerd Font:h15.5"
+	local map = require("helpers.keys").map
+	map({ "n", "v" }, "<D-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+	map({ "n", "v" }, "<D-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+	map({ "n", "v" }, "<D-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
+	map("i", "<D-=>", "<esc>:lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>a")
+	map("i", "<D-->", "<esc>:lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>a")
+	map("i", "<D-0>", "<esc>:lua vim.g.neovide_scale_factor = 1<CR>a")
+	vim.g.neovide_input_macos_option_key_is_meta = "only_left"
+	vim.g.neovide_hide_mouse_when_typing = true
+	vim.g.neovide_remember_window_size = true
+	vim.g.neovide_transparency = 1
+	vim.g.neovide_window_blurred = false
+	vim.g.neovide_cursor_animation_length = 0.03
+	vim.g.neovide_cursor_trail_size = 0.1
+	vim.g.neovide_floating_shadow = false
+	vim.o.guifont = "FiraCode Nerd Font:h15.5"
 end

@@ -4,6 +4,17 @@ return {
   config = function()
     require("overseer").setup({})
 
+
+    -- Keymaps
+    -- TODO: Eventually make this so that <leader>cc auto compiles based on filetype
+    -- and <leader>cC lets you enter something custom.
+    local map = require('helpers.keys').map
+    map("n", "<leader>cc", "<cmd>OverseerQuickAction<cr>", "Quick action list")
+    map("n", "<leader>cx", "<cmd>OverseerQuickAction restart<cr>", "Restart current task")
+    map("n", "<leader>cr", "<cmd>OverseerRun<cr>", "Run")
+    map("n", "<leader>ct", "<cmd>OverseerToggle<cr>", "Show tasks")
+
+
     local overseer = require("overseer")
     overseer.register_template({
       name = "python",

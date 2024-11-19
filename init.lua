@@ -10,15 +10,9 @@ if f ~= nil then
   io.close(f)
 end
 
--- Other options
+-- Main config
 require("core.options")
-
--- Handle plugins with lazy.nvim
 require("core.lazy")
--- TODO: install the plugin that highlights whatever you yank
-
--- General Neovim keymaps
 require("core.keymaps")
-
--- Autocmds
 require("core.autocmds")
+require("core.highlight")

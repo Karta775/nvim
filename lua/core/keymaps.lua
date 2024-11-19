@@ -12,7 +12,7 @@ wk.add({
   { "<leader>g",  group = "Git" },
   { "<leader>l",  group = "LSP" },
   { "<leader>lw", group = "Workspace" },
-  { "<leader>n",  group = "Neorg" },
+  { "<leader>o",  group = "Open" },
   { "<leader>q",  group = "Session" },
   { "<leader>s",  group = "Search" },
   { "<leader>t",  group = "Toggle" },
@@ -39,82 +39,14 @@ map("n", "<leader>tz", "<cmd>ZenMode<cr>", "Zen mode")
 map("n", "<leader>td", MiniDiff.toggle_overlay, "Diff overlay")
 map("n", "<leader>tD", MiniDiff.toggle, "Diff")
 
--- Yanky (better yank)
-map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", "Put")
-map({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", "Put before")
-map({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", "G put")
-map({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", "G put before")
-map("n", "<c-p>", "<Plug>(YankyPreviousEntry)", "Previous yank")
-map("n", "<c-n>", "<Plug>(YankyNextEntry)", "Next yank")
-
--- Search
-map("n", "<leader>sh", ":Telescope help_tags<cr>", "Help files")
-map("n", "<leader>sk", ":Telescope keymaps<cr>", "Keymaps")
-map("n", "<leader>sp", ":Telescope yank_history<cr>", "Yank history")
-
--- Neorg
-map("n", "<leader>na", ":Neorg agenda day<cr>", "Agenda")
-map("n", "<leader>nw", "<Plug>(neorg.telescope.switch_workspace)", "Workspace")
-map("n", "<leader>nh", "<Plug>(neorg.telescope.search_headings)", "Headings")
-map("n", "<leader>nb", "<Plug>(neorg.telescope.file_backlinks)", "Backlinks")
-map("n", "<leader>nn", ":Neorg<cr>", "Open")
-map("n", "<leader>nt", ":execute \"normal o** \" . strftime('%H:%M')<CR>o", "Insert current time")
-map("n", "<leader>ni", ":Neorg index<CR>", "Open index")
-map("n", "<leader>nf", "<Plug>(neorg.telescope.find_norg_files)", "Open note")
-map("n", "<leader>nl", "<Plug>(neorg.telescope.find_linkable)", "Link note")
-map("n", "<leader>nj", ":Neorg journal today<cr>", "Today (full buffer)")
-map("n", "<leader>nJ", ":new | Neorg journal today<cr>", "Today (split)")
-
 -- File manager
 map({ "n", "v" }, "<leader>e", function()
   MiniFiles.open(vim.api.nvim_buf_get_name(0))
 end, "Open file manager (current file)")
 map({ "n", "v" }, "<leader>E", MiniFiles.open, "Open file manager (cwd)")
 
--- Code compile
--- TODO: Eventually make this so that <leader>cc auto compiles based on filetype
--- and <leader>cC lets you enter something custom.
-map("n", "<leader>cc", "<cmd>OverseerQuickAction<cr>", "Quick action list")
-map("n", "<leader>cx", "<cmd>OverseerQuickAction restart<cr>", "Restart current task")
-map("n", "<leader>cr", "<cmd>OverseerRun<cr>", "Run")
-map("n", "<leader>ct", "<cmd>OverseerToggle<cr>", "Show tasks")
-
--- Search
-map("n", "<leader><leader>", ':lua require"telescope.builtin".find_files({no_ignore=false, hidden=false})<CR>', "Files")
-map("n", "<leader>ff", ':lua require"telescope.builtin".find_files({no_ignore=false, hidden=false})<CR>', "Files")
-map(
-  "n",
-  "<leader>fF",
-  ':lua require"telescope.builtin".find_files({no_ignore=true, hidden=true})<CR>',
-  "Files (hidden)"
-)
-map("n", "<leader>fr", ":Telescope oldfiles<CR>", "Recent files")
-map("n", "<leader>fc", ':Telescope find_files search_dirs={"~/.config/nvim"}<CR>', "nvim config")
-map("n", "<leader>fC", ':Telescope find_files search_dirs={"~/.config"}<CR>', "~/.config")
-map("n", "<leader>fd", ':Telescope find_files search_dirs={"~/docs"}<CR>', "Docs")
-map("n", "<leader>fD", ':Telescope find_files search_dirs={"~/Documents"}<CR>', "Documents")
-map("n", "<leader>fk", ":Telescope keymaps<CR>", "Keymaps")
-map(
-  "n",
-  "<leader>fo",
-  ':lua require"telescope.builtin".find_files({find_command = { "rg", "--files", "--glob", "**/*.org", vim.env.HOME .. "/org" }})<CR>',
-  "Org files"
-)
-map("n", "<leader>fg", ':lua require"telescope.builtin".live_grep()<CR>', "Strings (ripgrep)")
-map("n", "<leader>fp", ':lua require"telescope".extensions.projects.projects{}<CR>', "Projects")
-map("n", "<leader>fb", ":Telescope buffers<CR>", "Buffers")
-map("n", "<leader>/", function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-    winblend = 10,
-    previewer = false,
-  }))
-end, "Search in current buffer")
-
 -- Lazy
-map("n", "<leader>LL", ":Lazy<CR>", "Lazy")
-map("n", "<leader>LS", ":Lazy sync<CR>", "Sync")
-map("n", "<leader>LC", ":Lazy clean<CR>", "Clean")
+map("n", "<leader>L", ":Lazy<CR>", "Lazy")
 
 -- LSP
 -- See core/autocmds.lua
@@ -174,7 +106,9 @@ if vim.g.neovide then
 end
 
 -- Disable arrow keys
-map({ "n", "v" }, "<Up>", "<Nop>", "Disable arrow keys")
-map({ "n", "v" }, "<Down>", "<Nop>", "Disable arrow keys")
-map({ "n", "v" }, "<Left>", "<Nop>", "Disable arrow keys")
-map({ "n", "v" }, "<Right>", "<Nop>", "Disable arrow keys")
+-- map({ "n", "v" }, "<Up>", "<Nop>", "Disable arrow keys")
+-- map({ "n", "v" }, "<Down>", "<Nop>", "Disable arrow keys")
+-- map({ "n", "v" }, "<Left>", "<Nop>", "Disable arrow keys")
+-- map({ "n", "v" }, "<Right>", "<Nop>", "Disable arrow keys")
+
+-- map("i", "<S-Space>", "<Right>", "Go right in insert mode")

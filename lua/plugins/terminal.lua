@@ -81,9 +81,9 @@ return {
         file_manager:toggle()
       end
 
-      map("n", "<leader>tg", _lazygit_toggle, "LazyGit")
-      map("n", "<leader>tm", _music_player_toggle, "Music player")
-      map("n", "<leader>tr", _file_manager_toggle, "File manager")
+      map("n", "<leader>og", _lazygit_toggle, "LazyGit")
+      map("n", "<leader>om", _music_player_toggle, "Music player")
+      map("n", "<leader>of", _file_manager_toggle, "File manager")
     end,
   },
 }

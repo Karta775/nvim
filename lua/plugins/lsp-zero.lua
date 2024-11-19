@@ -92,6 +92,7 @@ return {
       local cmp_action = require("lsp-zero").cmp_action()
 
       require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_snipmate").load({ paths = "./snippets" })
 
       cmp.setup({
         sources = {
