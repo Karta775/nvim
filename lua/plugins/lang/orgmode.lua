@@ -10,10 +10,10 @@ return {
         org_default_notes_file = "~/org/refile.org",
       })
 
-      -- Keymaps
-      local wk = require('which-key')
-      wk.add({ "<leader>o", group = "Open/Org" })
-    end
+      -- -- Keymaps
+      -- local wk = require('which-key')
+      -- wk.add({ "<leader>o", group = "Open/Org" })
+    end,
   },
   {
     "akinsho/org-bullets.nvim",
