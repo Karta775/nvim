@@ -6,6 +6,9 @@ return {
         vtsls = {
           settings = {
             typescript = {
+              preferences = {
+                importModuleSpecifier = "relative"
+              },
               updateImportsOnFileMove = { enabled = "always" },
               suggest = {
                 completeFunctionCalls = true,
