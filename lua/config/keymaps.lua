@@ -16,3 +16,5 @@ map("n", "<leader>jn", "<cmd>JavaNewClass<cr>", { desc = "Create Java class" })
 -- NOTE: See plugins/refactoring.lua for original <leader>rs
 map("n", "<leader>rs", "<cmd>sort<cr>", { desc = "Sort all lines" })
 map("v", "<leader>rs", ":sort<cr>", { desc = "Sort lines" })
+
+map({ "n", "i" }, "<D-s>", "<cmd>w<cr>", { desc = "Save file" })
