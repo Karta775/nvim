@@ -121,22 +121,6 @@ return {
       require("mini.splitjoin").setup()
       require("mini.statusline").setup()
 
-      local starter = require('mini.starter')
-      local awk_arg = '{s=(36-length($0))/2; printf "%*s%s%*s\\n", s, "", $0, s, ""}'
-      starter.setup({
-        items = {
-          starter.sections.builtin_actions(),
-          starter.sections.telescope(),
-        },
-        content_hooks = {
-          starter.gen_hook.adding_bullet(),
-          starter.gen_hook.aligning('center', 'center'),
-        },
-        header = banner_small_cat_ngu,
-        -- footer = vim.fn.system("fortune -s -n 36 | awk '" .. awk_arg .. "'"),
-        footer = "",
-      })
-
       require("mini.jump2d").setup({
         mappings = {
           start_jumping = "<C-f>",
